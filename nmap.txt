@@ -1,0 +1,135 @@
+Starting Nmap 6.47 ( http://nmap.org ) at 2019-05-29 04:08 EDT
+NSE: Loaded 118 scripts for scanning.
+NSE: Script Pre-scanning.
+Initiating Ping Scan at 04:08
+Scanning 10.22.170.162 [4 ports]
+Completed Ping Scan at 04:08, 0.00s elapsed (1 total hosts)
+Initiating Parallel DNS resolution of 1 host. at 04:08
+Completed Parallel DNS resolution of 1 host. at 04:08, 13.00s elapsed
+Initiating SYN Stealth Scan at 04:08
+Scanning 10.22.170.162 [1000 ports]
+Discovered open port 80/tcp on 10.22.170.162
+Discovered open port 443/tcp on 10.22.170.162
+Discovered open port 139/tcp on 10.22.170.162
+Discovered open port 445/tcp on 10.22.170.162
+Discovered open port 135/tcp on 10.22.170.162
+Discovered open port 554/tcp on 10.22.170.162
+Discovered open port 49156/tcp on 10.22.170.162
+Discovered open port 49154/tcp on 10.22.170.162
+Discovered open port 902/tcp on 10.22.170.162
+Discovered open port 2382/tcp on 10.22.170.162
+Discovered open port 10243/tcp on 10.22.170.162
+Discovered open port 49165/tcp on 10.22.170.162
+Discovered open port 49152/tcp on 10.22.170.162
+Discovered open port 49153/tcp on 10.22.170.162
+Discovered open port 2383/tcp on 10.22.170.162
+Discovered open port 1433/tcp on 10.22.170.162
+Discovered open port 2869/tcp on 10.22.170.162
+Discovered open port 912/tcp on 10.22.170.162
+Discovered open port 49155/tcp on 10.22.170.162
+Completed SYN Stealth Scan at 04:08, 8.97s elapsed (1000 total ports)
+Initiating Service scan at 04:08
+Scanning 19 services on 10.22.170.162
+Completed Service scan at 04:10, 91.17s elapsed (19 services on 1 host)
+Initiating OS detection (try #1) against 10.22.170.162
+Initiating Traceroute at 04:10
+Completed Traceroute at 04:10, 1.01s elapsed
+Initiating Parallel DNS resolution of 2 hosts. at 04:10
+Completed Parallel DNS resolution of 2 hosts. at 04:10, 13.00s elapsed
+NSE: Script scanning 10.22.170.162.
+Initiating NSE at 04:10
+Completed NSE at 04:11, 73.57s elapsed
+Nmap scan report for 10.22.170.162
+Host is up (0.62s latency).
+Not shown: 980 closed ports
+PORT      STATE    SERVICE         VERSION
+80/tcp    open     http            Microsoft IIS httpd 8.5
+| http-methods: OPTIONS TRACE GET HEAD POST
+| Potentially risky methods: TRACE
+|_See http://nmap.org/nsedoc/scripts/http-methods.html
+|_http-title: IIS Windows
+135/tcp   open     msrpc           Microsoft Windows RPC
+139/tcp   open     netbios-ssn
+443/tcp   open     https
+|_http-methods: No Allow or Public header in OPTIONS response (status code 501)
+| http-server-header: Software version grabbed from Server header.
+| Consider submitting a service fingerprint.
+|_Run with --script-args http-server-header.skip
+|_http-title: Site doesn't have a title (text/plain; charset=utf-8).
+| ssl-cert: Subject: commonName=VMware/countryName=US
+| Issuer: commonName=VMware/countryName=US
+| Public Key type: rsa
+| Public Key bits: 2048
+| Not valid before: 2019-01-10T06:56:19+00:00
+| Not valid after:  2020-01-10T06:56:19+00:00
+| MD5:   e79e b8b3 0c53 48e1 a30a f4b8 e310 d11e
+|_SHA-1: 2e61 7137 0594 0dd9 19de df99 b696 fc79 668c cba2
+445/tcp   open     netbios-ssn
+514/tcp   filtered shell
+554/tcp   open     rtsp?
+902/tcp   open     ssl/vmware-auth VMware Authentication Daemon 1.10 (Uses VNC, SOAP)
+912/tcp   open     vmware-auth     VMware Authentication Daemon 1.0 (Uses VNC, SOAP)
+1433/tcp  open     ms-sql-s        Microsoft SQL Server 2008 10.00.1600.00; RTM
+2382/tcp  open     ms-olap3?
+2383/tcp  open     ms-olap4?
+2869/tcp  open     http            Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
+10243/tcp open     http            Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
+|_http-methods: No Allow or Public header in OPTIONS response (status code 404)
+|_http-title: Not Found
+49152/tcp open     msrpc           Microsoft Windows RPC
+49153/tcp open     msrpc           Microsoft Windows RPC
+49154/tcp open     msrpc           Microsoft Windows RPC
+49155/tcp open     msrpc           Microsoft Windows RPC
+49156/tcp open     msrpc           Microsoft Windows RPC
+49165/tcp open     unknown
+Device type: general purpose
+Running: Microsoft Windows 7|XP
+OS CPE: cpe:/o:microsoft:windows_7:::enterprise cpe:/o:microsoft:windows_xp::sp3
+OS details: Microsoft Windows 7 Enterprise, Microsoft Windows XP SP3
+Network Distance: 2 hops
+TCP Sequence Prediction: Difficulty=260 (Good luck!)
+IP ID Sequence Generation: Incremental
+Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
+
+Host script results:
+| ms-sql-info: 
+|   Windows server name: MANHHA
+|   [10.22.170.162\HA]
+|     Instance name: HA
+|     Version: Microsoft SQL Server 2008 RTM
+|       Version number: 10.00.1600.00
+|       Product: Microsoft SQL Server 2008
+|       Service pack level: RTM
+|       Post-SP patches applied: No
+|     TCP port: 1433
+|_    Clustered: No
+| nbstat: NetBIOS name: MANHHA, NetBIOS user: <unknown>, NetBIOS MAC: b4:6d:83:1e:05:c3 (unknown)
+| Names:
+|   MANHHA<00>           Flags: <unique><active>
+|   WORKGROUP<00>        Flags: <group><active>
+|   MANHHA<20>           Flags: <unique><active>
+|   WORKGROUP<1e>        Flags: <group><active>
+|   WORKGROUP<1d>        Flags: <unique><active>
+|_  \x01\x02__MSBROWSE__\x02<01>  Flags: <group><active>
+| smb-os-discovery: 
+|   OS: Windows 8.1 Pro 9600 (Windows 8.1 Pro 6.3)
+|   NetBIOS computer name: MANHHA
+|   Workgroup: WORKGROUP
+|_  System time: 2019-05-29T15:10:31+07:00
+| smb-security-mode: 
+|   Account that was used for smb scripts: guest
+|   User-level authentication
+|   SMB Security: Challenge/response passwords supported
+|_  Message signing disabled (dangerous, but default)
+|_smbv2-enabled: Server supports SMBv2 protocol
+
+TRACEROUTE (using port 21/tcp)
+HOP RTT        ADDRESS
+1   1.08 ms    192.168.255.2
+2   1002.43 ms 10.22.170.162
+
+NSE: Script Post-scanning.
+Read data files from: /usr/bin/../share/nmap
+OS and Service detection performed. Please report any incorrect results at http://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 207.54 seconds
+           Raw packets sent: 1091 (49.642KB) | Rcvd: 1070 (43.415KB)
